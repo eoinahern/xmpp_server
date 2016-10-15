@@ -13,14 +13,9 @@ import (
 	"net"
 	"os"
 	"xmpp_server/core"
-
 )
 
 func main() {
-
-	if len(os.Args) != 2 {
-		log.Fatalf("incorrect no. args  entered: %s", os.Args[0])
-	}
 
 	addr, err := net.ResolveTCPAddr("tcp", "127.0.0.1:5222")
 	checkErr(err)

@@ -67,7 +67,7 @@ func TestCreateObj(t *testing.T) {
 		t.Fail()
 	}
 
-	if stream.Name == "" || stream.Second == "" {
+	if stream.To == "" || stream.From == "" {
 		t.Error("test stream failed")
 		t.Fail()
 	}

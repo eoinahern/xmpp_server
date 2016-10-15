@@ -5,23 +5,39 @@ package messages
 *
 **/
 
-var Message struct {
+//stanza
+
+type Message struct {
 	from string
 	to   string
 	body string
 }
 
-var IQ struct {
+type IQ struct {
 	from string
 	to   string
 	body string
 }
 
-var Presence struct {
+type Presence struct {
 	from string
 	to   string
 	body string
 }
 
-var Stream struct {
+// stream
+
+/*type Stream struct {
+	Inner InnerStream `json:"stream"`
+}
+
+type InnerStream struct {
+	From    string `json:"from"` //myid prob email
+	To      string `json:"to"`
+	Id      string `json:"id"`  //This attribute is a unique identifier created by the receiving entity to function as a session key for the initiating entity's streams with
+	Version string `json:"version"`
+	Lang    string `json:"lang"`
+}*/
+
+type Feature struct {
 }

@@ -4,16 +4,17 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"xmpp_server/messages"
 )
 
-type InnerStream struct {
+/*type InnerStream struct {
 	Name   string `json:"name"`
 	Second string `json:"second"`
 }
 
 type Stream struct {
-	Mystream InnerStream `json:"streamtype"`
-}
+	Mystream InnerStream `json:"stream"`
+}*/
 
 type InnerMessage struct {
 	Name       string `json:"name"`
@@ -40,7 +41,7 @@ func determineTypeHelper(obj map[string]interface{}) string {
 
 	if _, ok := obj["messagetype"]; ok {
 		return "message"
-	} else if _, ok := obj["streamtype"]; ok {
+	} else if _, ok := obj["stream"]; ok {
 		return "stream"
 	} else {
 		return "unknown"
@@ -58,13 +59,13 @@ func GetMessage(b []byte) InnerMessage {
 	return mess.MyMessage
 }
 
-func GetStreamType(b []byte) InnerStream {
-	var str Stream
+func GetStreamType(b []byte) messages.Stream {
+	var str messages.Stream
 
 	err := json.Unmarshal(b, &str)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	return str.Mystream
+	return str
 }
