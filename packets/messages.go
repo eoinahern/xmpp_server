@@ -1,12 +1,5 @@
 package messages
 
-/**
-* file for various message types
-*
-**/
-
-//stanza
-
 type Message struct {
 	from string
 	to   string
