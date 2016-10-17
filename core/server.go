@@ -9,11 +9,16 @@ import (
 	"xmpp_server/utils"
 )
 
+/**
+*
+* This will be initialization process
+* going to need a DB for roster,
+* connected users etc.
+**/
+
 func HandleConn(conn net.Conn) {
 
-	fmt.Println("handling conn!!")
 	by := make([]byte, 128)
-
 	i, err := conn.Read(by)
 
 	if err != nil {
