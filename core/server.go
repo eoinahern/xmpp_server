@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"xmpp_server/messages"
+	"xmpp_server/packets"
 	"xmpp_server/utils"
 )
 
@@ -17,6 +17,10 @@ import (
 **/
 
 func HandleConn(conn net.Conn) {
+
+	//1. initialize by handling
+	// stream message sent.
+	// check for vesrion > 1 and send back features stream
 
 	by := make([]byte, 128)
 	i, err := conn.Read(by)
@@ -56,5 +60,14 @@ func CreateReturnStream(stream *messages.Stream) []byte {
 }
 
 func readMessage() {
+
+}
+
+/*
+* check version number on initial stream
+* message
+**/
+
+func checkVersion() {
 
 }

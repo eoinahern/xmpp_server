@@ -1,5 +1,7 @@
 package messages
 
+// message steam
+
 type Stream struct {
 	Inner InnerStream `json:"stream"`
 }
@@ -19,4 +21,24 @@ func NewStream() *Stream {
 
 func (s *Stream) CreateKey() {
 	s.Inner.Id = "12345"
+}
+
+/*
+* features stream. sent after initial presence message.
+*
+**/
+
+func NewFeatures() *FeaturesStream {
+	fstream := new(FeaturesStream)
+	return fstream
+}
+
+type FeaturesStream struct {
+	Inner InnerFStream `json:"featurestream"`
+}
+
+type InnerFStream struct {
+	Saslinit    bool     `json:"sasl"`
+	Tlsinit     bool     `json:"tls"`
+	Encryptypes []string `json:"encrypttypes"`
 }
