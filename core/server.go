@@ -38,6 +38,8 @@ func HandleConn(conn net.Conn) {
 	bytereturnstr := CreateReturnStream(&stream)
 	conn.Write(bytereturnstr)
 
+	//check version make session key
+
 	defer conn.Close()
 
 }
